@@ -1,0 +1,30 @@
+###GET ALL PRODUTOS
+GET http://localhost:8080/produtos
+
+###GET BY ID
+GET http://localhost:8080/produtos/1
+
+###CADASTRAR PRODUTO
+POST http://localhost:8080/produtos/
+Content-Type: application/json
+
+{
+  "nome" : "Primeiro Produto",
+  "descricao" : "Primeiro Produto",
+  "preco" : 3,
+  "imagemUrl" : "Teste"
+}
+
+###ATUALIZAR PRODUTO
+PUT http://localhost:8080/produtos/atualizar/1
+Content-Type: application/json
+
+{
+ "nome" : "Primeiro ",
+  "descricao" : " Produto",
+  "preco" : 7,
+  "imagemUrl" : "Teste"
+}
+
+###DELETAR PRODUTO
+DELETE http://localhost:8080/produtos/deletar/1

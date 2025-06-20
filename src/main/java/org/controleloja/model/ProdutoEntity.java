@@ -5,6 +5,7 @@ import io.quarkus.hibernate.orm.panache.*;
 import jakarta.ws.rs.*;
 
 @Entity
+@Table(name = "produtos")
 public class ProdutoEntity extends PanacheEntity{
   @Column(nullable = false)
   public String nome;

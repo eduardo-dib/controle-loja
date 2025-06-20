@@ -18,20 +18,22 @@ public class ProdutoService {
 	   return produto;
    }
    
-   public void cadastrarProduto(ProdutoEntity p) {
+   public ProdutoEntity cadastrarProduto(ProdutoEntity p) {
 	   if (p.preco < 0) throw new IllegalArgumentException("Preço inválido");
        p.persist();
+       return p;
    }
    
-   public void deletarProduto(Long id) {
+   public ProdutoEntity deletarProduto(Long id) {
 	   ProdutoEntity produto = ProdutoEntity.findById(id);
 	   if(produto == null) {
 		   throw new RuntimeException("Não foi possível encontrar o produto");
 	   }
 	   produto.delete();
+	   return produto;
    }
    
-   public void atualizarProduto(Long id, ProdutoEntity p) {
+   public ProdutoEntity atualizarProduto(Long id, ProdutoEntity p) {
 	   ProdutoEntity produto = ProdutoEntity.findById(id);
 	   if(produto == null) {
 		   throw new RuntimeException("Não foi possível encontrar o produto");
@@ -40,6 +42,7 @@ public class ProdutoService {
 	   produto.descricao = p.descricao;
 	   produto.preco = p.preco;
 	   produto.imagemUrl = p.imagemUrl;
+	   return p;
 	   
 	   
    }
