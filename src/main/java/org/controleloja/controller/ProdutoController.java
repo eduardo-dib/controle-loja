@@ -2,7 +2,6 @@ package org.controleloja.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.*;
 import org.controleloja.service.*;
 import org.controleloja.model.*;
@@ -25,7 +24,7 @@ public class ProdutoController {
 	
 	@GET
 	@Path("/{id}")
-	public ProdutoEntity getById(Long id) {
+	public ProdutoEntity getById(@PathParam("id") Long id) {
 		return produtoService.getById(id);
 	}
 	
@@ -38,14 +37,14 @@ public class ProdutoController {
 	@PUT
 	@Path("/atualizar/{id}")
 	@Transactional
-	public ProdutoEntity atualizar(Long id, ProdutoEntity produtoAtualizado) {
+	public ProdutoEntity atualizar(@PathParam("id") Long id, ProdutoEntity produtoAtualizado) {
 		return produtoService.atualizarProduto(id, produtoAtualizado);
 	}
 	
 	@DELETE
 	@Path("/deletar/{id}")
 	@Transactional
-	public ProdutoEntity deletar(Long id) {
+	public ProdutoEntity deletar(@PathParam("id") Long id) {
 		return produtoService.deletarProduto(id);
 	}
 }

@@ -2,7 +2,7 @@ package org.controleloja.model;
 
 import jakarta.persistence.*;
 import io.quarkus.hibernate.orm.panache.*;
-import jakarta.ws.rs.*;
+
 
 @Entity
 @Table(name = "produtos")
@@ -18,6 +18,10 @@ public class ProdutoEntity extends PanacheEntity{
   
   @Column(nullable = false)
   public String imagemUrl;
+  
+  @Column(nullable = false)
+  public boolean disponivel = true;
+
   
   
   
